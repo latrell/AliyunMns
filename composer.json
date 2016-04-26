@@ -1,0 +1,46 @@
+{
+    "name": "module/aliyun-mns-laravel",
+    "description": "阿里云消息服务在Laravel5中的Queue拓展。",
+    "keywords": [
+        "L5",
+        "Laravel 5",
+        "Laravel",
+        "Aliyun",
+        "MNS"
+    ],
+    "homepage": "https://github.com/Latrell/AliyunMns",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Latrell Chan",
+            "email": "i@latrell.me"
+        }
+    ],
+    "repositories": [
+        {
+			"type": "package",
+			"package": {
+				"name": "aliyun/mns",
+				"version": "1.2.2",
+				"dist": {
+					"url": "https://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/cn/mns/0.0.53/assets/sdks/aliyun-mns-php-sdk-1.2.2.zip",
+					"type": "zip"
+				}
+			}
+		}
+    ],
+    "require": {
+        "php": ">=5.5.9",
+        "illuminate/support": "5.1.*|5.2.*",
+        "aliyun/mns": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Latrell\\AliyunSls\\": "src/"
+        },
+        "files": [
+			"vendor/aliyun/mns/mns-autoloader.php"
+		]
+    },
+    "minimum-stability": "stable"
+}
