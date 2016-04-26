@@ -29,4 +29,24 @@ class MnsServiceProvider extends ServiceProvider
 			return new MnsConnector();
 		});
 	}
+
+	/**
+	 * Get the services provided by the provider.
+	 *
+	 * @return array
+	 */
+	public function provides()
+	{
+		return [
+			'queue',
+			'queue.worker',
+			'queue.listener',
+			'queue.failer',
+			'command.queue.work',
+			'command.queue.listen',
+			'command.queue.restart',
+			'command.queue.subscribe',
+			'queue.connection'
+		];
+	}
 }
