@@ -39,7 +39,9 @@
             "Latrell\\AliyunSls\\": "src/"
         },
         "files": [
-			"vendor/aliyun/mns/mns-autoloader.php"
+			'vendor/aliyun/mns/GuzzleHttp/functions.php',
+			'vendor/aliyun/mns/GuzzleHttp/Psr7/functions.php',
+			'vendor/aliyun/mns/GuzzleHttp/Promise/functions.php'
 		]
     },
     "minimum-stability": "stable"
