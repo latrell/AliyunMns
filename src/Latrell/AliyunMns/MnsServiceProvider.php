@@ -1,7 +1,8 @@
 <?php
 namespace Latrell\AliyunMns;
 
-use Illuminate\Queue\QueueServiceProvider;
+use Queue;
+use Illuminate\Support\ServiceProvider;
 use Latrell\AliyunMns\Connectors\MnsConnector;
 
 /**
@@ -9,32 +10,18 @@ use Latrell\AliyunMns\Connectors\MnsConnector;
  *
  * @author Latrell Chan
  */
-class MnsServiceProvider extends QueueServiceProvider
+class MnsServiceProvider extends ServiceProvider
 {
 
-	/**
-	 * Register the connectors on the queue manager.
-	 *
-	 * @param  \Illuminate\Queue\QueueManager  $manager
-	 * @return void
-	 */
-	public function registerConnectors($manager)
+	public function boot()
 	{
-		parent::registerConnectors($manager);
-
-		$this->registerMnsConnector($manager);
-	}
-
-	/**
-	 * Register the Aliyun Mns queue connector.
-	 *
-	 * @param  \Illuminate\Queue\QueueManager  $manager
-	 * @return void
-	 */
-	protected function registerMnsConnector($manager)
-	{
-		$manager->addConnector('mns', function () {
+		Queue::extend('mns', function () {
 			return new MnsConnector();
 		});
+	}
+
+	public function register()
+	{
+		//
 	}
 }
