@@ -2,6 +2,7 @@
 namespace Latrell\AliyunMns;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Queue\QueueManager;
 
 /**
  * 阿里云消息服务。
@@ -11,14 +12,9 @@ use Illuminate\Support\ServiceProvider;
 class MnsServiceProvider extends ServiceProvider
 {
 
-	/**
-	 * Register the application services.
-	 *
-	 * @return void
-	 */
-	public function register()
+	public function boot(QueueManager $queue)
 	{
-		$this->app['queue']->extend('mns', function () {
+		$queue->extend('mns', function () {
 			return new MnsConnector();
 		});
 	}
