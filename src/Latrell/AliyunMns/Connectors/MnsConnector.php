@@ -3,6 +3,7 @@ namespace Latrell\AliyunMns\Connectors;
 
 use AliyunMNS\Client;
 use Latrell\AliyunMns\MnsQueue;
+use Illuminate\Queue\Connectors\ConnectorInterface;
 
 class MnsConnector implements ConnectorInterface
 {

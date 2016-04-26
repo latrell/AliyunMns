@@ -38,6 +38,11 @@
         "psr-0": {
             "Latrell\\AliyunMns\\": "src/"
         },
+        "classmap": [
+			"../../aliyun/mns/AliyunMNS",
+			"../../aliyun/mns/GuzzleHttp",
+			"../../aliyun/mns/Psr"
+		],
         "files": [
 			"../../aliyun/mns/GuzzleHttp/functions.php",
 			"../../aliyun/mns/GuzzleHttp/Psr7/functions.php",

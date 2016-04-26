@@ -1,25 +1,40 @@
 <?php
 namespace Latrell\AliyunMns;
 
-use Illuminate\Support\ServiceProvider;
+use Illuminate\Queue\QueueServiceProvider;
+use Latrell\AliyunMns\Connectors\MnsConnector;
 
 /**
  * 阿里云消息服务。
  *
  * @author Latrell Chan
  */
-class MnsServiceProvider extends ServiceProvider
+class MnsServiceProvider extends QueueServiceProvider
 {
 
-	public function boot()
+	/**
+	 * Register the connectors on the queue manager.
+	 *
+	 * @param  \Illuminate\Queue\QueueManager  $manager
+	 * @return void
+	 */
+	public function registerConnectors($manager)
 	{
-		$this->app['queue']->extend('mns', function () {
-			return new MnsConnector();
-		});
+		parent::registerConnectors($manager);
+
+		$this->registerMnsConnector($manager);
 	}
 
-	public function register()
+	/**
+	 * Register the Aliyun Mns queue connector.
+	 *
+	 * @param  \Illuminate\Queue\QueueManager  $manager
+	 * @return void
+	 */
+	protected function registerMnsConnector($manager)
 	{
-		// noop.
+		$manager->addConnector('mns', function () {
+			return new MnsConnector();
+		});
 	}
 }
