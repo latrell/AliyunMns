@@ -18,4 +18,9 @@ class MnsServiceProvider extends ServiceProvider
 			return new MnsConnector();
 		});
 	}
+
+	public function register()
+	{
+		// noop.
+	}
 }
