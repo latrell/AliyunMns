@@ -1,5 +1,5 @@
 {
-    "name": "module/aliyun-mns-laravel",
+    "name": "latrell/aliyun-mns-laravel",
     "description": "阿里云消息服务在Laravel5中的Queue拓展。",
     "keywords": [
         "L5",
