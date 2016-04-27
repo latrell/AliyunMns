@@ -4,6 +4,7 @@ namespace Latrell\AliyunMns;
 use Illuminate\Support\Arr;
 use AliyunMNS\Client;
 use AliyunMNS\Requests\SendMessageRequest;
+use AliyunMNS\Exception\MessageNotExistException;
 use Latrell\AliyunMns\Jobs\MnsJob;
 use Illuminate\Queue\Queue;
 use Illuminate\Contracts\Queue\Queue as QueueContract;
@@ -97,9 +98,13 @@ class MnsQueue extends Queue implements QueueContract
 	{
 		$client = $this->getQueueRef($queue, false);
 
-		$job = $client->receiveMessage();
+		try {
+			$job = $client->receiveMessage();
+		} catch (MessageNotExistException $e) {
+			$job = null;
+		}
 
-		if ($job->isSucceed()) {
+		if (! is_null($job) && $job->isSucceed()) {
 			return new MnsJob($this->container, $client, $job);
 		}
 	}
