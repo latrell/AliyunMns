@@ -5,6 +5,27 @@ AliyunMns
 
 ## 安装
 
+打开 `composer.json` 找到或创建 `repositories` 键，添加资源库。
+
+```
+	// ...
+	"repositories": [
+		// ...
+	    {
+			"type": "package",
+			"package": {
+				"name": "aliyun/mns",
+				"version": "1.2.2",
+				"dist": {
+					"url": "https://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/cn/mns/0.0.53/assets/sdks/aliyun-mns-php-sdk-1.2.2.zip",
+					"type": "zip"
+				}
+			}
+		}
+	],
+	// ...
+```
+
 添加依赖包。
 
 ```
