@@ -95,9 +95,8 @@ class MnsQueue extends Queue implements QueueContract
 	 * @return \Illuminate\Contracts\Queue\Job|null
 	 */
 	public function pop($queue = null)
-	{
-		$client = $this->getQueueRef($queue, false);
-
+    {
+		$client = $this->getQueueRef($queue);
 		try {
 			$job = $client->receiveMessage();
 		} catch (MessageNotExistException $e) {
