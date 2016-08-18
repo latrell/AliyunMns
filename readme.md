@@ -1,3 +1,4 @@
+
 AliyunMns
 ======
 
@@ -5,31 +6,10 @@ AliyunMns
 
 ## 安装
 
-打开 `composer.json` 找到或创建 `repositories` 键，添加资源库。
-
-```
-	// ...
-	"repositories": [
-		// ...
-	    {
-			"type": "package",
-			"package": {
-				"name": "aliyun/mns",
-				"version": "1.2.2",
-				"dist": {
-					"url": "https://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/cn/mns/0.0.53/assets/sdks/aliyun-mns-php-sdk-1.2.2.zip",
-					"type": "zip"
-				}
-			}
-		}
-	],
-	// ...
-```
-
 添加依赖包。
 
 ```
-composer require latrell/aliyun-mns-laravel dev-master
+composer require icemanpro/aliyun-mns-laravel dev-master
 ```
 
 ## 使用
@@ -54,9 +34,12 @@ composer require latrell/aliyun-mns-laravel dev-master
             'driver' => 'mns',
             'access_id' => 'your-access-key-id',
             'access_key' => 'your-access-key-secret',
-            'security_token' => 'your-security-token',
+            'security_token' => null,
             'end_point' => 'http(s)://{AccountId}.mns.cn-hangzhou.aliyuncs.com',
             'queue' => 'your-queue-name'
         ],
 	],
 ```
+
+## SDK 版本号
+已含aliyunMNS SDK 1.3.1

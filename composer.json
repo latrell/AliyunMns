@@ -1,5 +1,5 @@
 {
-    "name": "latrell/aliyun-mns-laravel",
+    "name": "icemanpro/AliyunMNS",
     "description": "阿里云消息服务在Laravel5中的Queue拓展。",
     "keywords": [
         "L5",
@@ -11,43 +11,28 @@
     "homepage": "https://github.com/Latrell/AliyunMns",
     "license": "MIT",
     "authors": [
-        {
+	{
             "name": "Latrell Chan",
             "email": "i@latrell.me"
+        },
+		{
+            "name": "icemanpro",
+            "email": "icemanpro@gmail.com"
         }
     ],
-    "repositories": [
-        {
-			"type": "package",
-			"package": {
-				"name": "aliyun/mns",
-				"version": "1.2.2",
-				"dist": {
-					"url": "https://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/cn/mns/0.0.53/assets/sdks/aliyun-mns-php-sdk-1.2.2.zip",
-					"type": "zip"
-				}
-			}
-		}
-    ],
+
     "require": {
         "php": ">=5.5.9",
         "illuminate/support": "5.1.*|5.2.*",
-        "aliyun/mns": "*"
+        "guzzlehttp/guzzle":"~6.1.0",
+		"psr/http-message":"~1.0"
+
     },
     "autoload": {
         "psr-0": {
-            "Latrell\\AliyunMns\\": "src/"
-        },
-        "classmap": [
-			"../../aliyun/mns/AliyunMNS",
-			"../../aliyun/mns/GuzzleHttp",
-			"../../aliyun/mns/Psr"
-		],
-        "files": [
-			"../../aliyun/mns/GuzzleHttp/functions.php",
-			"../../aliyun/mns/GuzzleHttp/Psr7/functions.php",
-			"../../aliyun/mns/GuzzleHttp/Promise/functions.php"
-		]
+             "Latrell\\AliyunMns\\": "src/Latrell",
+            "AliyunMNS\\":"src/Aliyun"
+        }
     },
     "minimum-stability": "stable"
 }
