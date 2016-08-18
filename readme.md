@@ -1,3 +1,4 @@
+
 AliyunMns
 ======
 
@@ -8,7 +9,7 @@ AliyunMns
 添加依赖包。
 
 ```
-composer require latrell/aliyun-mns-laravel dev-master
+composer require icemanpro/aliyun-mns-laravel dev-master
 ```
 
 ## 使用
